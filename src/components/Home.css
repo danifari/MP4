@@ -1,0 +1,48 @@
+.img-container {
+    background-image: url("../assets/vynil.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-attachment: fixed; 
+    background-size: cover;
+    box-shadow: 5px 5px 5px  rgba(245, 0, 163, 0.5);
+    padding: 15px;
+    width: 250px;
+    height: 350px;
+    overflow: auto;
+    
+    position: relative;
+    top : 220px;
+    left: 220px;
+    transform: translate(-50%, -50%); /* Lo centra perfettamente sui propri assi X e Y */
+}
+
+.maintitle {
+    position: relative;
+    top : -255px;
+    left:  710px;
+    transform: translate(-50%, -50%); /* Lo centra perfettamente sui propri assi X e Y */
+    color: rgb(245, 0, 163);
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+.testo-spostato {
+    font-size: 70px;
+    position: relative;
+    top :80px;
+    left:  -325px;
+    transform: translate(-50%, -50%); /* Lo centra perfettamente sui propri assi X e Y */
+    color: rgb(245, 0, 163);
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+.rage{
+    font-size: 70px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
