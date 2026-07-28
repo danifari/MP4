@@ -1,0 +1,158 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding-left: 10px;
+    padding-right: 70px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    align-content: flex-start; 
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    background-color: #1e20257c;
+    backdrop-filter: blur(10px);
+    margin-bottom: 50px;
+    
+}
+.header .top-menu a.menu-burger{
+    transition: color 0.3s ease-in-out; /* evita transition:all che può interferire col figlio */
+}
+.header .top-menu .menu-burger-icon{
+    position: relative;
+    display: inline-block;
+    width: 26px;
+    height: 20px;
+}
+.header .top-menu .menu-burger-line{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    margin-top: -1.5px;
+    border-radius: 2px;
+    background-color: white;
+    transition: transform 0.9s ease, opacity 0.9s ease, background-color 0.9s ease;
+}
+.header .top-menu .menu-burger-line:nth-child(1){
+    transform: translateY(-8px);
+}
+.header .top-menu .menu-burger-line:nth-child(2){
+    transform: translateY(0);
+}
+.header .top-menu .menu-burger-line:nth-child(3){
+    transform: translateY(8px);
+}
+
+.header.menu-open .top-menu .menu-burger-line {
+    background-color: rgb(245, 0, 163);
+}
+
+.header.menu-open .top-menu .menu-burger-line:nth-child(1){
+    transform: translateY(0) rotate(45deg);
+}
+.header.menu-open .top-menu .menu-burger-line:nth-child(2){
+    opacity: 0;
+}
+.header.menu-open .top-menu .menu-burger-line:nth-child(3){
+    transform: translateY(0) rotate(-45deg);
+}
+.header::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    height: 5px;
+    box-shadow: 0px 5px 5px rgba(245, 0, 163, 0.5);
+    transition: left 0.9s ease-in-out;
+}
+
+.header.menu-open::after{
+    left: 200px; /* il bordo "parte" solo da dove finisce il side-menu */
+}
+.header .top-menu{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header .top-menu a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+.header .top-menu li {
+    list-style: none;
+    padding: 0; /* Utile per rimuovere lo spazio di default a sinistra */
+    margin: 0;
+}
+.top-menu .nav-link:not(.nav-link.active){
+    display:none;
+}
+.top-menu .nav-link.active{
+    color: rgb(245, 0, 163);
+    font-weight: bold;
+}
+
+.side-menu{
+    width: 200px;
+    height: calc(100vh - 55px); /* non copre l'header */
+    position: fixed;
+    top: 55px;
+    left: 0;
+    
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 0 5px rgba(245, 0, 163, 0.5);
+    z-index: 900; /* sotto l'header (1000) ma sopra il contenuto */
+    transform: translateX(-110%); /* nascosto fuori schermo a sinistra */
+    transition: transform 0.4s ease-in-out;
+    padding: 20px 0;
+}
+.side-menu li{
+    margin: 8px 0; /* spazio extra tra le voci */
+}
+.side-menu li .nav-link.active{
+    text-decoration: none;
+    color: rgb(252, 2, 177);
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.side-menu li a:not(.nav-link.active){
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.side-menu li:hover a{
+    display: inline-block; 
+    transform: scale(1.5); 
+    transform-origin: left;
+    color: rgb(245, 0, 163);
+    transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+.side-menu.open{
+    transform: translateX(0); /* entra in vista */
+}
+
+.side-menu li{
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.overlay{
+    position: fixed;
+    top: 55px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 55px);
+    background: transparent; /* invisibile — se vuoi un effetto scurito metti rgba(0,0,0,0.3) */
+    z-index: 800; /* sotto il menu (900) ma sopra il contenuto normale */
+}

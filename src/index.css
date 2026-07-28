@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    padding: 20px;
+}
+
+body{
+    min-height: 100vh; /* Imposta l'altezza minima del body al 100% dell'altezza della finestra */
+    background-color: #1E2025; /* Colore di sfondo del body */
+    color:floralwhite; /* Colore del testo del body */
+}
+
+

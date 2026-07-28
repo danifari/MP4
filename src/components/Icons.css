@@ -1,0 +1,57 @@
+
+.icons {
+    position: fixed;
+    border-radius: 60px;
+    bottom: 20px;
+    right: 50px;
+    box-shadow: 5px 0px 5px rgba(245, 0, 163, 0.5);
+    padding: 20px;
+    /* 1. Attiva Flexbox */
+    display: flex; 
+    
+    /* 2. Imposta la direzione a colonna */
+    flex-direction: column; 
+    
+    align-items: center;
+    background-color: #1e20257c;
+    backdrop-filter: blur(10px);
+    
+    /* TRUCCO EXTRA PER LA SPAZIATURA */
+    gap: 15px; 
+}
+
+.icons a, 
+.icons img, 
+.icons i,
+.icons svg{
+    font-size: 22px !important;/* Dimensione standard delle icone */
+    display: inline-block; 
+    text-decoration: none;
+    transition: transform 0.2s ease; /* Rende lo zoom morbido */
+}
+#spotify {
+    color: #1DB954;
+}
+
+#youtube {
+    color: rgb(255, 0, 0);
+}
+
+#ig {
+    color: white;
+}
+
+#twitter {
+    color: rgb(29, 161, 242);
+}
+
+#house:hover,
+#spotify:hover,
+#youtube:hover,
+#twitter:hover,
+#ig:hover {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transform: scale(1.5); 
+    color: rgb(245, 0, 163);
+}
