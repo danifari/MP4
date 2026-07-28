@@ -8,6 +8,12 @@ function Header() {
         document.body.style.overflow = menuOpen ? 'hidden' : '';
     }, [menuOpen]);
 
+    function handleSideNavClick(e) {
+        if (!e.target.closest('a.nav-link')) return;
+        e.preventDefault();
+        setMenuOpen(false);
+    }
+
     return (
         <>
             <header className={`header ${menuOpen ? 'menu-open' : ''}`}>
@@ -39,7 +45,7 @@ function Header() {
                 <div className="overlay" onClick={() => setMenuOpen(false)}></div>
             )}
 
-            <ul className={`side-menu ${menuOpen ? 'open' : ''}`}>
+            <ul className={`side-menu ${menuOpen ? 'open' : ''}`} onClick={handleSideNavClick}>
                 <li><a href="#" className="nav-link active" data-page="home">Home</a></li>
                 <li><a href="#" className="nav-link" data-page="about">About</a></li>
                 <li><a href="#" className="nav-link" data-page="services">Services</a></li>

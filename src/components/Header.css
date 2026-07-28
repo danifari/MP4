@@ -15,6 +15,10 @@
     margin-bottom: 50px;
     
 }
+.testo-evidenziato{
+    color: rgb(245, 0, 163);
+    font-weight: bold;
+}
 .header .top-menu a.menu-burger{
     transition: color 0.3s ease-in-out; /* evita transition:all che può interferire col figlio */
 }
