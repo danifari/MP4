@@ -2,19 +2,15 @@ import './Home.css';
 
 
 function Home() {
-    return (
-        <>
-        <div className = "container">
-            
-            <div className = "img-container"></div>
-            <div ClassName = "title">
-                <h1 className = "maintitle">MP4. Exclusive Clubbing</h1>
-                <h3 className = "subtitle">The authentic Rap & Trap experience. Sounds by Matthew Wrld & Difo.. </h3>
-            </div>
-            <p>lorem ipsum dolor sit amet, .</p>
-        </div>
-        </>
-    );
+  return (
+    <>
+      <div className="container">
+        <div className="img-container"></div>
+        <h1 className="maintitle">Swaggin since I smash yo mama</h1>
+      </div>
+      <p>MP4 non è solo un party, è un'esperienza sonora. Nato dall'esigenza di portare la vera attitudine del Rap e della Trap d'oltreoceano nei club, il collettivo ridefinisce le regole della notte. Con la direzione artistica e i suoni di Matthew Wrld & Difo, e spinto dalla vision di 2999, MP4 trasforma ogni set in un rituale immersivo. Dai bassi profondi dell'Hip Hop americano fino ai ritmi frenetici del Baile Funk e ai Club Edits più esclusivi, portiamo un'energia cruda e senza filtri direttamente in pista. From 23:00 till late: we run the club..</p>
+    </>
+  );
 }
 
 export default Home;

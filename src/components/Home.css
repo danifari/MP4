@@ -1,10 +1,13 @@
+* {
+    box-sizing: border-box;
+}
 .container {
     display: flex;
     flex-direction: row; /* column, row, row-reverse, column-reverse */
+    align-items: center;
     height: 90vh;
     justify-content: space-evenly; /* set the allignment on the main axis: center, flex-start, flex-end, center, space-between, space-around, space-evenly */
-    align-items: space-between; /* set the allignment on the cross axis: flex-start, flex-end, center, stretch(), baseline (allign the text) */
-    flex-wrap: wrap; /* set how the items should wrap: nowrap, wrap, wrap-reverse */
+    flex-wrap: wrap-reverse; /* set how the items should wrap: nowrap, wrap, wrap-reverse */
     align-content: center; /* set the allignment of the lines on the cross axis: flex-start, flex-end, center, stretch(), space-between, space-around */
     row-gap: 60px; /* set the gap between the rows */
     column-gap: 20px;
@@ -23,15 +26,34 @@
     
     box-shadow: 5px 5px 15px rgba(245, 0, 163, 0.5);
     
-    width: 40%;
-    min-width: 250px;
+    width: 35%;
+    min-width: 300px;
     height: auto;
     
     box-sizing: border-box;
     flex-shrink: 0;
     animation: rotate 20s linear infinite; 
 }
-
+.maintitle {
+    color: rgb(245, 0, 163);
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    width: 55%;
+    
+    /* Sintassi: clamp(MINIMO, PREFERITO, MASSIMO) */
+    font-size: clamp(30px, 5vw, 60px); 
+}
+p {
+    position: relative;
+    color: floralwhite;
+    font-family: "Roboto", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    /* Sintassi: clamp(MINIMO, PREFERITO, MASSIMO) */
+    font-size: clamp(15px, 2vw, 20px); 
+    text-align: center;
+}
 @keyframes rotate {
     from {
         transform: rotate(0deg);

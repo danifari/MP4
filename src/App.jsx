@@ -7,7 +7,6 @@ function App() {
   return(
     <>
     <Header></Header>
-    <Home></Home>
     <div style={{ position: 'fixed',
           top: 0,
           left: 0,
@@ -39,6 +38,9 @@ function App() {
         zoom={0.9}
       />
     </div>
+    <main>
+        <Home></Home>
+    </main>
     <Icons></Icons>
     </>
   );
