@@ -16,7 +16,7 @@ function App() {
           zIndex: -1, }}>
       <Grainient
         color1="#000000"
-        color2="#181819"
+        color2="#000000"
         color3="#EC4899"
         timeSpeed={3.95}
         colorBalance={0.37}

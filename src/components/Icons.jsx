@@ -9,7 +9,7 @@ function Icons() {
             <a href="https://open.spotify.com/artist/6lBptQoWw0G3129704485" id="spotify" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-spotify"></i>
             </a>
-            <a href="https://www.instagram.com/yourusername" id="ig" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/mp4session/?hl=it" id="ig" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-instagram"></i>
             </a>
             

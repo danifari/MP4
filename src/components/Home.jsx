@@ -4,10 +4,14 @@ import './Home.css';
 function Home() {
     return (
         <>
-        <div className = "textandphoto">
-            <div className = "img-container">
+        <div className = "container">
+            
+            <div className = "img-container"></div>
+            <div ClassName = "title">
+                <h1 className = "maintitle">MP4. Exclusive Clubbing</h1>
+                <h3 className = "subtitle">The authentic Rap & Trap experience. Sounds by Matthew Wrld & Difo.. </h3>
             </div>
-            <h1 className = "maintitle">33 lbs of pure<span className = "rage"> rage</span>.<span className = "testo-spostato">Open the pit.</span></h1>
+            <p>lorem ipsum dolor sit amet, .</p>
         </div>
         </>
     );
