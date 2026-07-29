@@ -35,15 +35,48 @@
     animation: rotate 20s linear infinite; 
 }
 .maintitle {
-    color: rgb(245, 0, 163);
-    font-family: "Black Ops One", system-ui;
-    font-weight: 400;
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
     font-style: normal;
+    font-style: bold;
+    color: rgb(245, 0, 163);
     width: 55%;
-    
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Fondamentale: permette al testo di andare a capo su schermi piccoli */
+    column-gap: 0.4em;
     /* Sintassi: clamp(MINIMO, PREFERITO, MASSIMO) */
-    font-size: clamp(30px, 5vw, 60px); 
+    font-size: clamp(40px, 5vw, 80px); 
 }
+.word {
+  /* inline-block è fondamentale per far funzionare i transform (scale) sulle parole */
+  display: inline-block; 
+  opacity: 0;
+  
+  animation: popIn 0.1s ease-out forwards;
+}
+
+    /* Gestione dei ritardi parola per parola */
+    .word:nth-child(1) { animation-delay: 0.3s; }
+    .word:nth-child(2) { animation-delay: 0.6s; }
+    .word:nth-child(3) { animation-delay: 0.9s; }
+    .word:nth-child(4) { animation-delay: 1.2s; }
+    .word:nth-child(5) { animation-delay: 1.5s; }
+    .word:nth-child(6) { animation-delay: 1.8s; }
+
+/* Il Keyframe dell'animazione improvvisa */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.2); /* Parte piccolissimo */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Torna alla dimensione normale */
+  }
+}
+
 p {
     position: relative;
     color: floralwhite;
