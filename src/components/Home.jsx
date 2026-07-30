@@ -1,5 +1,5 @@
 import './Home.css';
-
+import parentalAdvisory from '../assets/Parental_Advisory.png';
 
 function Home() {
   return (
@@ -16,13 +16,21 @@ function Home() {
         </h1>
       </div>
       <p>MP4 non è solo un party, è un'esperienza sonora. Nato dall'esigenza di portare la vera attitudine del Rap e della Trap d'oltreoceano nei club, il collettivo ridefinisce le regole della notte. Con la direzione artistica e i suoni di Matthew Wrld & Difo, e spinto dalla vision di 2999, MP4 trasforma ogni set in un rituale immersivo. Dai bassi profondi dell'Hip Hop americano fino ai ritmi frenetici del Baile Funk e ai Club Edits più esclusivi, portiamo un'energia cruda e senza filtri direttamente in pista. From 23:00 till late: we run the club..</p>
+      
+      
       <div className="discover">
-        <h2 className='genreh'>DISCOVER THE GENRE WE PLAY </h2>
+        <div className="box1">
+          <img src={parentalAdvisory} alt="MP4 LOGO" className="parentalAdvisory" />
+          
+          <h2 className='genreh'>CHECK OUT OUR SOUND </h2>
+
+          <img src={parentalAdvisory} alt="MP4 LOGO" className="parentalAdvisory" />
+        </div>
         <div className="ipod">
           <div className="screen">
             <div className="content">
               <h2>MP4</h2>
-              <p>Experience the sound of the night</p>
+              <p>jungle</p>
             </div>
           </div>
           <div className="buttons">

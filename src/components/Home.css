@@ -140,6 +140,8 @@ p {
         0 8px 20px rgba(0, 0, 0, 0.4),
         inset 0 1px 2px rgba(255, 255, 255, 0.8),
         inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+
+    
 }
 
 .screen {
@@ -158,6 +160,8 @@ p {
     text-align: center;
     color: rgb(245, 0, 163);
     font-family: "Courier New", monospace;
+    font-weight: bold;
+    font-size: clamp(30px, 3vw, 40px);
 }
 
 .content p {
@@ -238,8 +242,18 @@ p {
 .next-track-button {
     right: 20px; /* Posizionato a destra */
 }
-
+.box1 {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
 .genreh {
+    position : relative;
+    align-items: center;
+    justify-content: center;
     font-family: "Bitter", serif;
     font-optical-sizing: auto;
     font-weight: 800;
@@ -252,5 +266,13 @@ p {
     flex-wrap: wrap; /* Fondamentale: permette al testo di andare a capo su schermi piccoli */
     column-gap: 0.4em;
     /* Sintassi: clamp(MINIMO, PREFERITO, MASSIMO) */
-    font-size: clamp(30px, 4vw, 70px); 
+    font-size: clamp(30px, 4vw, 50px); 
+
+     
+    
+}
+
+.parentalAdvisory {
+    width: clamp(100px, 15vw, 150px);
+    height: auto;
 }
