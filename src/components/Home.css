@@ -78,17 +78,36 @@
   }
 }
 
-p {
+.about-text {
     position: relative;
     color: floralwhite;
     font-family: "Roboto", system-ui;
     font-weight: 400;
     font-style: normal;
     /* Sintassi: clamp(MINIMO, PREFERITO, MASSIMO) */
-    font-size: clamp(15px, 2vw, 20px); 
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 80px;
+    font-size: clamp(15px, 2vw, 20px);
+    line-height: 1.7;
+    text-align: left;
+    max-width: 1200px;
+    /* margin: sopra/sotto 20px-80px, sinistra/destra auto = centra il blocco nella pagina
+       pur mantenendo il testo allineato a sinistra al suo interno */
+    margin: 20px 60px 80px 60px;
+    padding-left: 24px;
+    /* Il bordo rosa è il primo indizio del filo conduttore che lega tutta la pagina */
+    border-left: 3px solid rgb(245, 0, 163);
+}
+
+/* Etichetta "eyebrow": piccola, maiuscola, spaziata — usata ovunque nella pagina
+   per introdurre un blocco di contenuto senza dover ripetere titoli grossi */
+.eyebrow {
+    display: block;
+    font-family: "Roboto", system-ui;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: clamp(11px, 1vw, 13px);
+    font-weight: 700;
+    color: rgb(245, 0, 163);
+    margin-bottom: 4px;
 }
 @keyframes rotate {
     from {
@@ -100,12 +119,23 @@ p {
 }
 
 .discover {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    /* Colonna testo flessibile + colonna ipod di larghezza controllata:
+       così le due colonne restano sempre in proporzione tra loro invece
+       di "galleggiare" indipendentemente come con flex-wrap */
+    grid-template-columns: minmax(260px, 1fr) minmax(280px, 380px);
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
+    justify-items: center;
+    column-gap: 40px;
+    row-gap: 20px;
+    padding: 0 84px;
+}
+
+/* Sotto i 800px le due colonne non hanno più senso affiancate: si impilano */
+@media (max-width: 800px) {
+    .discover {
+        grid-template-columns: 1fr;
+    }
 }
 .ipod {
     position: relative;
@@ -115,6 +145,7 @@ p {
     align-items: center;
     justify-content: flex-start;
     
+    /* Gradiente metallico invece di colore piatto */
     background: linear-gradient(
         135deg,
         #f5f5f5 0%,
@@ -138,7 +169,10 @@ p {
     box-shadow: 
         0 8px 20px rgba(0, 0, 0, 0.4),
         inset 0 1px 2px rgba(255, 255, 255, 0.8),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+        /* Bagliore ambientale rosa: molto sfumato, serve solo a "collegare"
+           visivamente l'ipod al resto della pagina invece di lasciarlo isolato */
+        0 0 70px -15px rgba(245, 0, 163, 0.45);
 
     
 }
@@ -156,46 +190,78 @@ p {
         inset 0 0 10px rgba(0, 0, 0, 0.5),
         0 1px 3px rgba(255, 255, 255, 0.3);
     
-    text-align: center;
-    color: rgb(245, 0, 163);
+    /* La tipografia ora è gestita dai singoli elementi al suo interno
+       (screen-brand, now-playing-label, track-item), non più qui */
     font-family: "Courier New", monospace;
-    font-weight: bold;
-    font-size: clamp(30px, 3vw, 40px);
 }
 
-.content p {
-    font-size: clamp(14px, 1.5vw, 18px);
+/* Marchio "MP4" in filigrana nell'angolo dello schermo: presente ma discreto,
+   così non compete più con il genere in scorrimento per l'attenzione */
+.screen-brand {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
     font-weight: bold;
-    margin-top: 10px;
+    color: rgba(245, 0, 163, 0.55);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 12px;
+}
+
+.now-playing-label {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: clamp(10px, 1.2vw, 12px);
+    font-weight: bold;
+    color: rgb(245, 0, 163);
+    margin-bottom: 8px;
 }
 
 /* --- Carosello dei generi nel display dell'ipod --- */
 
 .track-info {
-
+    /* Questa è la "finestrella": ha una larghezza fissa (100% dello schermo)
+       e overflow: hidden nasconde tutto quello che esce fuori dai bordi.
+       Senza questa riga vedresti tutti i generi allineati uno dopo l'altro. */
     width: 100%;
     overflow: hidden;
     margin-top: 10px;
 }
 
 .track-track {
-    
+    /* Qui mettiamo tutti i generi in fila orizzontale con flex.
+       Il transform: translateX viene applicato via JS (inline style in Home.jsx)
+       per spostare la fila e mostrare un genere alla volta. */
     display: flex;
-    transition: transform 0.5s ease-in-out; 
+    transition: transform 0.5s ease-in-out; /* qui avviene lo "scorrimento" morbido */
 }
 
+/* Quando React aggiunge questa classe, l'animazione viene spenta di netto.
+   Serve SOLO per l'istante in cui saltiamo dalla copia finta al vero elemento,
+   così quel salto è invisibile invece che un'animazione all'indietro. */
 .track-track.no-transition {
     transition: none;
 }
 
 .track-item {
-    color: #C0C0C0;
-    font-family: "Bitter", serif; 
+    /* flex: 0 0 100% dice a ogni genere di occupare esattamente
+       il 100% della larghezza della finestrella e di non restringersi/allargarsi mai. */
     flex: 0 0 100%;
     text-align: center;
-    font-size: clamp(30px, 3vw, 40px);
+    font-size: clamp(20px, 2.5vw, 30px);
     font-weight: bold;
     white-space: nowrap;
+    /* Colore proprio (non ereditato dal rosa di .screen): il genere è il contenuto
+       "neutro", il rosa resta riservato alle etichette/accenti */
+    color: floralwhite;
 }
 
 .buttons {
@@ -271,36 +337,42 @@ p {
     right: 20px; /* Posizionato a destra */
 }
 .box1 {
-    
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 20px;
+    gap: 14px;
+    text-align: left;
 }
 .genreh {
     position : relative;
-    align-items: center;
-    justify-content: center;
     font-family: "Bitter", serif;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    font-style: bold;
-    color: #C0C0C0;
-    width: 55%;
-    text-align: center;
+    width: 100%;
+    text-align: left;
     display: flex;
     flex-wrap: wrap; /* Fondamentale: permette al testo di andare a capo su schermi piccoli */
+    justify-content: flex-start;
     column-gap: 0.4em;
+    margin: 0;
     /* Sintassi: clamp(MINIMO, PREFERITO, MASSIMO) */
-    font-size: clamp(30px, 4vw, 50px); 
+    font-size: clamp(30px, 4vw, 50px);
 
-     
-    
+    /* Testo con sfumatura bianco -> rosa: è il "momento firma" di questa sezione,
+       lo stesso rosa usato nell'eyebrow e nel bagliore dell'ipod, ma qui più deciso */
+    color: #C0C0C0; /* fallback per browser che non supportano background-clip su testo */
+    background: linear-gradient(90deg, #ffffff 0%, rgb(245, 0, 163) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .parentalAdvisory {
-    width: clamp(100px, 15vw, 150px);
+    /* Ora è un solo badge, non più due copie identiche: dimensione ridotta
+       perché fa da "bollino", non da elemento centrale del blocco */
+    width: clamp(150px, 12vw, 1000px);
     height: auto;
+    opacity: 0.85;
 }
