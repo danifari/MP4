@@ -1,55 +1,68 @@
 * {
     box-sizing: border-box;
 }
-.container {
-    display: flex;
-    flex-direction: row; /* column, row, row-reverse, column-reverse */
-    align-items: center;
+.hero {
+    position: relative;
     min-height: 90vh;
-    justify-content: space-evenly; /* set the allignment on the main axis: center, flex-start, flex-end, center, space-between, space-around, space-evenly */
-    flex-wrap: wrap-reverse; /* set how the items should wrap: nowrap, wrap, wrap-reverse */
-    align-content: center; /* set the allignment of the lines on the cross axis: flex-start, flex-end, center, stretch(), space-between, space-around */
-    row-gap: 60px; /* set the gap between the rows */
-    column-gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 40px 20px;
+    margin-bottom: 30px;
 }
 
-.img-container {
+.hero-cd {
+    position: absolute;
+    top: 40%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    
     background-image: url("../assets/mp4dvd.png");
     background-repeat: no-repeat;
-    background-position: center; 
-    background-size: cover; 
+    background-position: center;
+    background-size: cover;
     
-
-    aspect-ratio: 1 / 1; /* Lo fa quadrato... */
-    border-radius: 50%; /* ...e questo lo fa diventare tondo! */
-    overflow: hidden; 
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     
-    box-shadow: 5px 5px 15px rgba(245, 0, 163, 0.5);
+    width: min(60vw, 620px);
+    min-width: 320px;
     
-    width: 35%;
-    min-width: 300px;
-    height: auto;
+    box-shadow: 0 0 80px rgba(245, 0, 163, 0.35);
     
-    box-sizing: border-box;
-    flex-shrink: 0;
-    animation: rotate 20s linear infinite; 
+    animation: rotate 20s linear infinite;
+    z-index: 1;
 }
-.maintitle {
+
+.hero-title {
+    position: relative;
+    z-index: 2;
+    
     font-family: "Bitter", serif;
     font-optical-sizing: auto;
-    font-weight: 800;
+    font-weight: 900;
     font-style: normal;
-    font-style: bold;
     color: rgb(245, 0, 163);
-    width: 55%;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.6);
+    paint-order: stroke fill;
+    
     text-align: center;
     display: flex;
-    flex-wrap: wrap; /* Fondamentale: permette al testo di andare a capo su schermi piccoli */
+    flex-wrap: wrap;
     justify-content: center;
     column-gap: 0.4em;
-    /* Sintassi: clamp(MINIMO, PREFERITO, MASSIMO) */
-    font-size: clamp(40px, 5vw, 80px); 
+    font-size: clamp(36px, 5.5vw, 84px);
+    
+    max-width: 90%;
+    padding: clamp(20px, 4vw, 44px) clamp(24px, 6vw, 60px);
+    
+    text-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(0, 0, 0, 0.7),
+        0 0 60px rgba(245, 0, 163, 0.4);
 }
+
 .word {
   /* inline-block è fondamentale per far funzionare i transform (scale) sulle parole */
   display: inline-block; 
@@ -94,7 +107,10 @@
     margin: 20px 60px 80px 60px;
     padding-left: 24px;
     /* Il bordo rosa è il primo indizio del filo conduttore che lega tutta la pagina */
-    border-left: 3px solid rgb(245, 0, 163);
+    
+    
+    border-bottom: 3px solid rgb(245, 0, 163);
+    border-radius: 8px;
 }
 
 /* Etichetta "eyebrow": piccola, maiuscola, spaziata — usata ovunque nella pagina
@@ -130,7 +146,12 @@
     row-gap: 20px;
     padding: 0 84px;
 }
-
+@media (max-width: 600px) {
+    .hero {
+        min-height: 90dvh;
+        padding-top: 10px;
+    }
+}
 /* Sotto i 800px le due colonne non hanno più senso affiancate: si impilano */
 @media (max-width: 800px) {
     .discover {

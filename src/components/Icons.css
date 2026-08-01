@@ -8,6 +8,7 @@
     padding: 20px;
     /* 1. Attiva Flexbox */
     display: flex; 
+    z-index: 1000;
     
     /* 2. Imposta la direzione a colonna */
     flex-direction: column; 
