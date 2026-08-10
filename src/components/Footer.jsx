@@ -8,14 +8,16 @@ function Footer() {
         <div className="footer-copy">
           <span className="footer-kicker">MP4 / closing notes</span>
           <p className="footer-text">
-            Sessions, bookings, press e collab requests. Keep the night moving, keep the signal loud.
+            check our vibes and contact us for more info and collaborations.
           </p>
         </div>
 
         <div className="footer-meta">
-          <a href="#discover">Discover</a>
           <a href="#top">Back to top</a>
-          <span>Available for bookings</span>
+          <a href="#discover">Discover the sound</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farinola.2086585@studenti.uniroma1.it" 
+            target="_blank"
+            title="email me"> let's keep in contact</a>
         </div>
 
         <Icons variant="footer" />
