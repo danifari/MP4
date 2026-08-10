@@ -25,11 +25,12 @@
 /* 1. Il titolo diventa una "label" piccola e discreta */
 .event-title {
     font-family: "Courier New", monospace; /* Spostiamo qui il font tecnico */
-    font-weight: 400;
+    font-weight: 600;
+    
     font-size: clamp(12px, 1.5vw, 16px); /* Dimensioni notevolmente ridotte */
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    color: rgba(255, 255, 255, 0.5); /* Grigio trasparente, non ruba la scena */
+    color: rgb(245, 0, 163); 
     margin: 0 0 10px 0; /* Spazio per separarlo dal contenuto */
 }
 
@@ -37,7 +38,7 @@
 .event-date, .event-location {
     font-family: "Bitter", serif; /* Usiamo il font d'impatto per le info cruciali */
     font-weight: 800;
-    font-size: clamp(20px, 3vw, 36px); /* Molto più grande */
+    font-size: clamp(15px, 3vw, 36px); /* Molto più grande */
     color: white; /* Colore pieno e brillante */
     margin: 5px 0;
     
@@ -47,16 +48,7 @@
     gap: 12px; 
 }
 
-/* 3. Evidenziamo il link rendendolo interattivo e accattivante */
-.event-location a {
-    text-decoration: none;
-    /* Spostiamo il gradiente rosa sul link per invitare al click */
-    background: linear-gradient(90deg, #C0C0C0 0%, rgb(245, 0, 163) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: opacity 0.3s ease;
-}
+
 
 .event-location a:hover {
     opacity: 0.8; /* Aggiunge un feedback visivo al passaggio del mouse */
