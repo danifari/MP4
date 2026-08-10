@@ -17,7 +17,7 @@ function Footer() {
           <a href="#discover">Discover the sound</a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farinola.2086585@studenti.uniroma1.it" 
             target="_blank"
-            title="email me"> let's keep in contact</a>
+            title="email"> let's keep in contact</a>
         </div>
 
         <Icons variant="footer" />

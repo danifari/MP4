@@ -1,30 +1,33 @@
-.event{
+.event {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end; /* QUESTA È LA CHIAVE: spinge tutto a destra */
     align-items: center;
+    gap: clamp(15px, 5vw, 80px); /* Mantieni un gap piccolo, serve solo a separare testo e immagine tra loro */
     border-bottom: 3px solid rgb(245, 0, 163);
-    margin: 0px 60px 0px 60px;
     border-right: 3px solid rgb(245, 0, 163);
     border-radius: 8px;
-
+    margin: 40px clamp(15px, 5vw, 60px);
+    padding: 24px;
 }
-.event-content{
+
+.event-content {
     color: floralwhite;
-    font-family: "Roboto", system-ui;
+    font-family: "Roboto", system-ui, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: clamp(15px, 2vw, 20px);
     line-height: 1.7;
     text-align: left;
     max-width: 1200px;
-    margin: 20px 60px 80px 60px;
-    padding-left: 24px;
-    margin-top: 60px;
+    flex: 1; /* Permette al testo di occupare lo spazio rimanente in modo intelligente */
+    
+    /* Rimossi i margini complessi. Il posizionamento ora è gestito dal 'gap' e 'padding' del padre */
 }
-img{
-    width: 40%;
+
+img {
+    width: 55%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 16px;
+    object-fit: cover; /* Assicura che l'immagine mantenga le proporzioni senza schiacciarsi */
 }
