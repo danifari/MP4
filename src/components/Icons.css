@@ -3,7 +3,7 @@
     position: fixed;
     border-radius: 60px;
     bottom: 20px;
-    right: 50px;
+    right: 20px;
     box-shadow: 5px 0px 5px rgba(245, 0, 163, 0.5);
     padding: 20px;
     /* 1. Attiva Flexbox */
@@ -18,7 +18,27 @@
     backdrop-filter: blur(10px);
     
     /* TRUCCO EXTRA PER LA SPAZIATURA */
-    gap: 15px; 
+    gap: 15px;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.icons--hidden {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+    pointer-events: none;
+}
+
+.icons--footer {
+    position: static;
+    border-radius: 0;
+    bottom: auto;
+    right: auto;
+    box-shadow: none;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    backdrop-filter: none;
+    gap: 18px;
 }
 
 .icons a, 
@@ -29,6 +49,12 @@
     display: inline-block; 
     text-decoration: none;
     transition: transform 0.2s ease; /* Rende lo zoom morbido */
+}
+
+.icons--footer a,
+.icons--footer i,
+.icons--footer svg {
+    font-size: 18px !important;
 }
 #spotify {
     color: #1DB954;
