@@ -1,7 +1,7 @@
 .event {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end; /* QUESTA È LA CHIAVE: spinge tutto a destra */
+    justify-content: flex-end;
     align-items: center;
     gap: clamp(15px, 5vw, 80px); /* Mantieni un gap piccolo, serve solo a separare testo e immagine tra loro */
     border-bottom: 3px solid rgb(245, 0, 163);
@@ -12,17 +12,39 @@
 }
 
 .event-content {
-    color: floralwhite;
-    font-family: "Roboto", system-ui, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: clamp(15px, 2vw, 20px);
-    line-height: 1.7;
-    text-align: left;
-    max-width: 1200px;
+    text-align : left;
+    gap: 10px 24px;
+    padding-top: 18px;
+    font-family: "Courier New", monospace;
+    font-size: clamp(8px, 1.5vw, 24px);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
     flex: 1; /* Permette al testo di occupare lo spazio rimanente in modo intelligente */
     
     /* Rimossi i margini complessi. Il posizionamento ora è gestito dal 'gap' e 'padding' del padre */
+}
+.event-date{
+    margin-bottom: 10px;
+}
+.event-title{
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 0.4em;
+    margin: 0;
+    font-size: clamp(30px, 4vw, 50px);
+    color: #C0C0C0;
+    background: linear-gradient(90deg, #C0C0C0 0%, rgb(245, 0, 163) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 img {
@@ -31,3 +53,4 @@ img {
     border-radius: 8px;
     object-fit: cover; /* Assicura che l'immagine mantenga le proporzioni senza schiacciarsi */
 }
+
