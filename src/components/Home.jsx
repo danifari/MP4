@@ -82,20 +82,30 @@ function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero-cd"></div>
-        <h1 className="hero-title">
-            <span className="word">LOREM </span>
-            <span className="word"> IPSUM </span>
-            <span className="word"> DOLOR </span>
-            <span className="word"> SIT </span>
-            <span className="word"> AMET </span>
-            <span className="word"> CONSECTETUR </span>
-        </h1>
+        <div className="hero-copy">
+          <span className="hero-kicker">MP4 // Y2K NIGHT SYSTEM</span>
+          <h1 className="hero-title">
+            <span className="word">NEON</span>
+            <span className="word">CHROME</span>
+            <span className="word">SOUND</span>
+            <span className="word">SYSTEM</span>
+          </h1>
+          <p className="hero-subtitle">
+            Rap, trap e club energy con un’estetica glossy, velocissima e senza compromessi.
+          </p>
+          <div className="hero-actions">
+            <a className="hero-cta" href="#discover">Enter the set</a>
+            <span className="hero-note">23:00 till late</span>
+          </div>
+        </div>
+        <div className="hero-visual" aria-hidden="true">
+          <div className="hero-cd"></div>
+        </div>
       </section>
       <p className="about-text">MP4 non è solo un party, è un'esperienza sonora. Nato dall'esigenza di portare la vera attitudine del Rap e della Trap d'oltreoceano nei club, il collettivo ridefinisce le regole della notte. Con la direzione artistica e i suoni di Matthew Wrld & Difo, e spinto dalla vision di 2999, MP4 trasforma ogni set in un rituale immersivo. Dai bassi profondi dell'Hip Hop americano fino ai ritmi frenetici del Baile Funk e ai Club Edits più esclusivi, portiamo un'energia cruda e senza filtri direttamente in pista. From 23:00 till late: we run the club..</p>
       
       
-      <div className="discover">
+      <div className="discover" id="discover">
         <div className="box1">
           <span className="eyebrow">MP4 Sound System</span>
           <h2 className='genreh'>CHECK OUT OUR SOUND</h2>
