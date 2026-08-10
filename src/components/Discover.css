@@ -1,0 +1,222 @@
+.discover {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(280px, 380px);
+    align-items: center;
+    justify-items: center;
+    column-gap: 40px;
+    row-gap: 20px;
+    padding: 0 84px;
+}
+
+@media (max-width: 800px) {
+    .discover {
+        grid-template-columns: 1fr;
+    }
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 14px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    display: block;
+    font-family: "Roboto", system-ui;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: clamp(11px, 1vw, 13px);
+    font-weight: 700;
+    color: rgb(245, 0, 163);
+    margin-bottom: 4px;
+}
+
+.genreh {
+    position: relative;
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 0.4em;
+    margin: 0;
+    font-size: clamp(30px, 4vw, 50px);
+    color: #C0C0C0;
+    background: linear-gradient(90deg, #ffffff 0%, rgb(245, 0, 163) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.parentalAdvisory {
+    width: clamp(150px, 12vw, 1000px);
+    height: auto;
+    opacity: 0.85;
+}
+
+.ipod {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(
+        135deg,
+        #f5f5f5 0%,
+        #d4d4d4 15%,
+        #ffffff 30%,
+        #b8b8b8 45%,
+        #eeeeee 60%,
+        #999999 75%,
+        #e8e8e8 90%,
+        #cccccc 100%
+    );
+    width: clamp(220px, 25vw, 300px);
+    height: clamp(380px, 45vw, 520px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+        0 0 70px -15px rgba(245, 0, 163, 0.45);
+}
+
+.screen {
+    position: relative;
+    width: 90%;
+    height: clamp(140px, 22vw, 200px);
+    background-color: #000000;
+    border-radius: 10px;
+    margin-top: clamp(12px, 2vw, 20px);
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.5),
+        0 1px 3px rgba(255, 255, 255, 0.3);
+    font-family: "Courier New", monospace;
+}
+
+.screen-brand {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+    color: rgba(245, 0, 163, 0.55);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 12px;
+}
+
+.now-playing-label {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: clamp(10px, 1.2vw, 12px);
+    font-weight: bold;
+    color: rgb(245, 0, 163);
+    margin-bottom: 8px;
+}
+
+.track-info {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.track-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.track-track.no-transition {
+    transition: none;
+}
+
+.track-item {
+    flex: 0 0 100%;
+    text-align: center;
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: bold;
+    white-space: nowrap;
+    color: floralwhite;
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(180px, 20vw, 250px);
+    height: clamp(180px, 20vw, 250px);
+    margin-top: clamp(20px, 4vw, 35px);
+    background: linear-gradient(
+        135deg,
+        #4a4a4a 0%,
+        #2a2a2a 25%,
+        #1a1a1a 50%,
+        #3a3a3a 75%,
+        #262626 100%
+    );
+    border-radius: 50%;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+.center-button {
+    width: clamp(70px, 10vw, 100px);
+    height: clamp(70px, 10vw, 100px);
+    background: radial-gradient(circle at 35% 35%, #2a2a2a, #000000);
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.8),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.buttons button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    font-size: clamp(13px, 1.4vw, 16px);
+    cursor: pointer;
+}
+
+.play-button {
+    top: 20px;
+}
+
+.pause-button {
+    bottom: 20px;
+}
+
+.prev-track-button,
+.next-track-button {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+}
+
+.prev-track-button {
+    left: 20px;
+}
+
+.next-track-button {
+    right: 20px;
+}
