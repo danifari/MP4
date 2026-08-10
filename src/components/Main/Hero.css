@@ -190,9 +190,9 @@
         justify-content: center;
         align-items: center;
         gap: clamp(12px, 3vh, 28px);
-        height: 100dvh;
-        max-height: 100dvh;
-        min-height: 100dvh;
+        height: 100svh;
+        max-height: 100svh;
+        min-height: 100svh;
         padding: clamp(16px, 4vh, 32px) clamp(18px, 4vw, 56px);
     }
 
