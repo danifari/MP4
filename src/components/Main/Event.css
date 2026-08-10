@@ -1,0 +1,30 @@
+.event{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid rgb(245, 0, 163);
+    margin: 0px 60px 0px 60px;
+    border-right: 3px solid rgb(245, 0, 163);
+    border-radius: 8px;
+
+}
+.event-content{
+    color: floralwhite;
+    font-family: "Roboto", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(15px, 2vw, 20px);
+    line-height: 1.7;
+    text-align: left;
+    max-width: 1200px;
+    margin: 20px 60px 80px 60px;
+    padding-left: 24px;
+    margin-top: 60px;
+}
+img{
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import parentalAdvisory from '../assets/Parental_Advisory.png';
+import parentalAdvisory from '../../assets/Parental_Advisory.png';
 import './Discover.css';
 
 const genres = ['JUNGLE', 'HIP HOP', 'TRAP', 'BAILE FUNK', 'CLUB EDITS'];
