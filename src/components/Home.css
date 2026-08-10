@@ -3,7 +3,7 @@
 }
 .hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,9 +107,9 @@
     margin: 20px 60px 80px 60px;
     padding-left: 24px;
     /* Il bordo rosa è il primo indizio del filo conduttore che lega tutta la pagina */
+    margin-top: 60px;
+    border-top: 3px solid rgb(245, 0, 163);
     
-    
-    border-bottom: 3px solid rgb(245, 0, 163);
     border-radius: 8px;
 }
 

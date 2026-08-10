@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Home from './components/Home';
 import Icons from './components/Icons';
+import Maps from './components/Maps';
 import Grainient from './Grainient';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
     </div>
     <main>
         <Home></Home>
+        <Maps></Maps>
     </main>
     <Icons></Icons>
     </>
