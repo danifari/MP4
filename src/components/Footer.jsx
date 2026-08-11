@@ -46,7 +46,9 @@ function Footer() {
             title="email"> let's keep in contact</a>
         </div>
 
-        <Icons variant="footer" />
+        <div className="footer-icons-container">
+          <Icons variant="footer" />
+        </div>
 
         <div className="footer-bottom">
           <span>© 2026 MP4</span>

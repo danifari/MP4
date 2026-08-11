@@ -15,6 +15,7 @@
     gap: 18px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .footer-copy {
@@ -37,6 +38,14 @@
     font-size: clamp(14px, 1.5vw, 18px);
     line-height: 1.7;
     color: rgba(255, 250, 245, 0.88);
+}
+
+.footer-icons-container {
+    min-height: 38px;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    pointer-events: auto;
 }
 
 .footer-meta {
