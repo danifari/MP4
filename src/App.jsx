@@ -1,5 +1,5 @@
+import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
-import Home from './components/Home';
 import Icons from './components/Icons';
 import Footer from './components/Footer';
 import Grainient from './Grainient';
@@ -40,7 +40,7 @@ function App() {
       />
     </div>
     <main>
-        <Home></Home>
+        <Outlet />
         <Footer></Footer>
     </main>
     <Icons></Icons>

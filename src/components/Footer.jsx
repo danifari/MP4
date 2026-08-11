@@ -1,7 +1,33 @@
 import './Footer.css';
 import Icons from './Icons';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleDiscoverClick = (e) => {
+    e.preventDefault();
+    
+    // Se siamo già in home, scolla all'elemento
+    if (location.pathname === '/') {
+      const element = document.getElementById('discover');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Se siamo in un'altra pagina, naviga alla home
+      navigate('/');
+      // Scolla dopo che la pagina si è caricata
+      setTimeout(() => {
+        const element = document.getElementById('discover');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-inner">
@@ -14,7 +40,7 @@ function Footer() {
 
         <div className="footer-meta">
           <a href="#top">Back to top</a>
-          <a href="#discover">Discover the sound</a>
+          <a href="#discover" onClick={handleDiscoverClick}>Discover the sound</a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farinola.2086585@studenti.uniroma1.it" 
             target="_blank"
             title="email"> let's keep in contact</a>

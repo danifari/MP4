@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
@@ -10,9 +11,10 @@ function Header() {
 
     function handleSideNavClick(e) {
         if (!e.target.closest('a.nav-link')) return;
-        e.preventDefault();
         setMenuOpen(false);
     }
+
+    const navClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`;
 
     return (
         <>
@@ -33,10 +35,10 @@ function Header() {
                             </span>
                         </a>
                     </li>
-                    <li><a href="#" className="nav-link active" data-page="home">Home</a></li>
-                    <li><a href="#" className="nav-link" data-page="about">About</a></li>
-                    <li><a href="#" className="nav-link" data-page="services">Services</a></li>
-                    <li><a href="#" className="nav-link" data-page="contact">Contact</a></li>
+                    <li><NavLink to="/" end className={navClass}>Home</NavLink></li>
+                    <li><NavLink to="/radio" className={navClass}>Radio</NavLink></li>
+                    <li><NavLink to="/events" className={navClass}>Events</NavLink></li>
+                    <li><NavLink to="/contact" className={navClass}>Contact</NavLink></li>
                 </ul>
                 <h1><span className="testo-evidenziato">MP4</span>session</h1>
             </header>
@@ -46,10 +48,10 @@ function Header() {
             )}
 
             <ul className={`side-menu ${menuOpen ? 'open' : ''}`} onClick={handleSideNavClick}>
-                <li><a href="#" className="nav-link active" data-page="home">Home</a></li>
-                <li><a href="#" className="nav-link" data-page="about">About</a></li>
-                <li><a href="#" className="nav-link" data-page="services">Services</a></li>
-                <li><a href="#" className="nav-link" data-page="contact">Contact</a></li>
+                <li><NavLink to="/" end className={navClass}>Home</NavLink></li>
+                <li><NavLink to="/radio" className={navClass}>Radio</NavLink></li>
+                <li><NavLink to="/events" className={navClass}>Events</NavLink></li>
+                <li><NavLink to="/contact" className={navClass}>Contact</NavLink></li>
             </ul>
         </>
     );
