@@ -1,6 +1,15 @@
 import './Hero.css';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Hero() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleDiscoverClick = (e) => {
+    e.preventDefault();
+    navigate('/events');
+  };
+
   return (
     <section className="hero">
       <div className="hero-copy">
@@ -20,7 +29,7 @@ function Hero() {
           Rap, trap e club energy con un'estetica glossy, velocissima e senza compromessi.
         </p>
         <div className="hero-actions">
-          <a className="hero-cta" href="#discover">Enter the set</a>
+          <a className="hero-cta" href="#discover" onClick={handleDiscoverClick}>Enter the set</a>
           <span className="hero-note">23:00 till late</span>
         </div>
       </div>
