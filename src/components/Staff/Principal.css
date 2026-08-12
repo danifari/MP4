@@ -1,0 +1,148 @@
+.char-select {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: 4rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.char-select__title {
+  font-family: "Press Start 2P", monospace;
+  color: rgb(245, 0, 163);
+  text-shadow: 0 0 10px rgba(245, 0, 163, 0.8), 0 0 30px rgba(245, 0, 163, 0.4);
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
+  letter-spacing: 2px;
+  text-align: center;
+  z-index: 2;
+  margin-bottom: 2.5rem;
+}
+
+.char-select__floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background-image:
+    linear-gradient(rgba(245, 0, 163, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 0, 163, 0.35) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(400px) rotateX(65deg);
+  transform-origin: bottom;
+  animation: floorScroll 3s linear infinite;
+  mask-image: linear-gradient(to top, black 40%, transparent 100%);
+}
+
+@keyframes floorScroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 60px; }
+}
+
+.char-select__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.char-card {
+  background: rgba(10, 10, 10, 0.9);
+  border: 2px solid #333;
+  border-radius: 4px;
+  padding: 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  text-align: left;
+}
+
+.char-card:hover {
+  border-color: rgb(245, 0, 163);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 20px rgba(245, 0, 163, 0.5);
+}
+
+.char-card--active {
+  border-color: rgb(245, 0, 163);
+  box-shadow: 0 0 25px rgba(245, 0, 163, 0.8);
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { box-shadow: 0 0 15px rgba(245, 0, 163, 0.5); }
+  to { box-shadow: 0 0 30px rgba(245, 0, 163, 0.9); }
+}
+
+.char-card__portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #111;
+  border: 1px solid #333;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.char-card__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.3) contrast(1.1);
+}
+
+.char-card__name {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.75rem;
+  color: rgb(245, 0, 163);
+  margin-bottom: 0.75rem;
+}
+
+.char-card__stats {
+  font-size: 0.7rem;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.char-card__stat {
+  display: flex;
+  justify-content: space-between;
+  color: #aaa;
+}
+
+.char-card__stat span:last-child {
+  color: #fff;
+}
+
+.char-card__bar {
+  width: 100%;
+  height: 6px;
+  background: #222;
+  border: 1px solid #444;
+  margin-top: 4px;
+}
+
+.char-card__bar-fill {
+  height: 100%;
+  background: rgb(245, 0, 163);
+  box-shadow: 0 0 6px rgb(245, 0, 163);
+}
+
+.char-card__cursor {
+  margin-top: 0.75rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.6rem;
+  color: #0ff;
+  text-align: center;
+  animation: blink 0.6s steps(2) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

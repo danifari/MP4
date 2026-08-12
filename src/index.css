@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 .grainient-container {
   position: relative;
   width: 100%;
