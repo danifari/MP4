@@ -12,6 +12,8 @@ const FIGHTERS = [
     vibe: "Dark",
     energy: 99,
     img: M4tt3w,
+    namevideo: "Matthew Wrld live set",
+    video: "https://www.youtube.com/embed/Ruds9piuXos?si=HulO4B1vKBfA_zmY",
     bio: "Producer resident, tracce cupe e bassi che spaccano il petto.",
     social: ["Nightcrawl", "Void State", "Loop 999"],
   },
@@ -22,6 +24,8 @@ const FIGHTERS = [
     vibe: "Chaos",
     energy: 99,
     img: difossj,
+    namevideo: "Difo live set",
+    video: "https://www.youtube.com/embed/oQg1mpmzSac?si=HvO1Yjd1iwDYMLE0" ,
     bio: "Set imprevedibili, mixaggio ad alto rischio, zero compromessi.",
     social: ["Static Riot", "Panic Room", "Overdrive"],
   },
@@ -93,6 +97,21 @@ function Principal() {
 
               {/* BACK */}
               <div className="char-card__face char-card__face--back">
+                {f.video && (
+                  <div className="video-container">
+                    {flipped === f.id && (
+                      <iframe
+                        src={f.video}
+                        title={f.namevideo || f.name}
+                        frameBorder="0"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    )}
+                  </div>
+                )}
+
                 <p className="char-card__name char-card__name--back">{f.name}</p>
 
                 <p className="char-card__bio">{f.bio}</p>

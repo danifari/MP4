@@ -260,3 +260,17 @@
   box-shadow: 0 0 25px rgba(245, 0, 163, 0.8);
   animation: pulse 0.8s ease-in-out infinite alternate;
 }
+.video-container {
+    position:relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Forza le proporzioni a 16:9 */
+    margin-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.video-container iframe {
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    
+}
