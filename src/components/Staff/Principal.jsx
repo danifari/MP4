@@ -4,7 +4,6 @@ import difossj from "../../assets/characters/difossj.png";
 import M4tt3w from "../../assets/characters/M4tt3w.png";
 import char3 from "../../assets/characters/char3.png";
 
-
 const FIGHTERS = [
   {
     id: "matthew-wrld",
@@ -13,6 +12,8 @@ const FIGHTERS = [
     vibe: "Dark",
     energy: 99,
     img: M4tt3w,
+    bio: "Producer resident, tracce cupe e bassi che spaccano il petto.",
+    social: ["Nightcrawl", "Void State", "Loop 999"],
   },
   {
     id: "difo",
@@ -21,6 +22,8 @@ const FIGHTERS = [
     vibe: "Chaos",
     energy: 99,
     img: difossj,
+    bio: "Set imprevedibili, mixaggio ad alto rischio, zero compromessi.",
+    social: ["Static Riot", "Panic Room", "Overdrive"],
   },
   {
     id: "2999",
@@ -29,54 +32,84 @@ const FIGHTERS = [
     vibe: "Ethereal",
     energy: 99,
     img: char3,
+    bio: "Voce eterea sopra beat distorti, l'anima liquida del collettivo.",
+    social: ["Ghost Signal", "Blue Static", "2999 Interlude"],
   },
 ];
 
 function Principal() {
-  const [selected, setSelected] = useState(null);
+  const [flipped, setFlipped] = useState(null);
+
+  const toggleFlip = (id) => {
+    setFlipped((current) => (current === id ? null : id));
+  };
 
   return (
     <section className="char-select">
       <h1 className="char-select__title">CHOOSE YOUR FIGHTER</h1>
 
-      
-
       <div className="char-select__grid">
         {FIGHTERS.map((f) => (
-          <button
-            key={f.id}
-            className={`char-card ${selected === f.id ? "char-card--active" : ""}`}
-            onClick={() => setSelected(f.id)}
-          >
-            <div className="char-card__portrait">
-              <img src={f.img} alt={f.name} />
-            </div>
+          <div className="char-card" key={f.id}>
+            <button
+              className={`char-card__inner ${
+                flipped === f.id ? "char-card__inner--flipped" : ""
+              }`}
+              onClick={() => toggleFlip(f.id)}
+              aria-pressed={flipped === f.id}
+              aria-label={`${f.name}, mostra dettagli`}
+            >
+              {/* FRONT */}
+              <div className="char-card__face char-card__face--front">
+                <div className="char-card__portrait">
+                  <img src={f.img} alt={f.name} />
+                </div>
 
-            <p className="char-card__name">{f.name}</p>
+                <p className="char-card__name">{f.name}</p>
 
-            <div className="char-card__stats">
-              <div className="char-card__stat">
-                <span>ROLE</span>
-                <span>{f.role}</span>
-              </div>
-              <div className="char-card__stat">
-                <span>VIBE</span>
-                <span>{f.vibe}</span>
-              </div>
-              <div className="char-card__stat">
-                <span>ENERGY</span>
-                <span>{f.energy}%</span>
-              </div>
-              <div className="char-card__bar">
-                <div
-                  className="char-card__bar-fill"
-                  style={{ width: `${f.energy}%` }}
-                />
-              </div>
-            </div>
+                <div className="char-card__stats">
+                  <div className="char-card__stat">
+                    <span>ROLE</span>
+                    <span>{f.role}</span>
+                  </div>
+                  <div className="char-card__stat">
+                    <span>VIBE</span>
+                    <span>{f.vibe}</span>
+                  </div>
+                  <div className="char-card__stat">
+                    <span>ENERGY</span>
+                    <span>{f.energy}%</span>
+                  </div>
+                  <div className="char-card__bar">
+                    <div
+                      className="char-card__bar-fill"
+                      style={{ width: `${f.energy}%` }}
+                    />
+                  </div>
+                </div>
 
-            {selected === f.id && <div className="char-card__cursor">▶ SELECT</div>}
-          </button>
+                <div className="char-card__cursor">▶ TAP FOR INFO</div>
+              </div>
+
+              {/* BACK */}
+              <div className="char-card__face char-card__face--back">
+                <p className="char-card__name char-card__name--back">{f.name}</p>
+
+                <p className="char-card__bio">{f.bio}</p>
+
+                <div className="char-card__tracklist">
+                  <span className="char-card__tracklist-title">SOCIAL</span>
+                  <ul>
+                    {f.social.map((t) => (
+                      <li key={t}>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="char-card__cursor">◀ BACK</div>
+              </div>
+            </button>
+          </div>
         ))}
       </div>
     </section>
