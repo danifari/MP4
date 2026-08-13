@@ -42,10 +42,14 @@ const FIGHTERS = [
 ];
 
 function Second() {
-  const [flipped, setFlipped] = useState(null);
+  // "selected" resta invariato finché non scegli un'altro DJ: guida il colore.
+  // "open" controlla solo la rotazione della carta (fronte/retro).
+  const [selected, setSelected] = useState(null);
+  const [open, setOpen] = useState(null);
 
-  const toggleFlip = (id) => {
-    setFlipped((current) => (current === id ? null : id));
+  const handleTap = (id) => {
+    setSelected(id);
+    setOpen((current) => (current === id ? null : id));
   };
 
   return (
@@ -54,13 +58,18 @@ function Second() {
 
       <div className="char-select2__grid">
         {FIGHTERS.map((f) => (
-          <div className="char-card2" key={f.id}>
+          <div
+            className={`char-card2 ${
+              selected === f.id ? "char-card2--selected" : ""
+            }`}
+            key={f.id}
+          >
             <button
               className={`char-card2__inner ${
-                flipped === f.id ? "char-card2__inner--flipped" : ""
+                open === f.id ? "char-card2__inner--flipped" : ""
               }`}
-              onClick={() => toggleFlip(f.id)}
-              aria-pressed={flipped === f.id}
+              onClick={() => handleTap(f.id)}
+              aria-pressed={open === f.id}
               aria-label={`${f.name}, mostra dettagli`}
             >
               {/* FRONT */}
@@ -79,7 +88,7 @@ function Second() {
               <div className="char-card2__face char-card2__face--back">
                 {f.video && (
                   <div className="video-container2">
-                    {flipped === f.id && (
+                    {open === f.id && (
                       <iframe
                         src={f.video}
                         title={f.namevideo || f.name}
