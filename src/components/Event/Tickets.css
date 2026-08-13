@@ -37,18 +37,13 @@
 }
 
 .events__list {
-  position: relative;
-  max-width: 760px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-/* ============================================
-   RIGA EVENTO — layout a "biglietto": data a
-   sinistra, taglio perforato, dettagli, stato.
-   Mobile-first: 2 colonne, stato in seconda riga.
-   ============================================ */
 
 .event-row {
   position: relative;
@@ -62,7 +57,6 @@
   align-items: start;
   padding: 1.4rem 0;
   border-bottom: 1px solid #1c1c1c;
-  text-decoration: none;
   color: inherit;
   transition: background 0.3s ease;
 }
@@ -133,12 +127,27 @@
 }
 
 .event-row__venue {
+  text-decoration:underline;
+  text-decoration-color: rgba(245, 0, 163, 0.5);
+  text-underline-offset: 4px;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
   font-family: "Bitter", serif;
   font-style: italic;
   font-weight: 600;
   font-size: 1.05rem;
   color: #eee;
   margin: 0;
+  cursor: pointer;
+}
+
+.event-row__venue:disabled,
+.event-row__status:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .event-row__meta {
@@ -171,15 +180,18 @@
 .event-row__status {
   grid-area: status;
   justify-self: start;
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(245, 0, 163, 0.4);
+  border-radius: 2px;
   font-family: monospace;
   font-size: 0.6rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 0.35rem 0.7rem;
-  border: 1px solid rgba(245, 0, 163, 0.4);
-  border-radius: 2px;
   color: rgba(245, 0, 163, 0.9);
   white-space: nowrap;
+  cursor: pointer;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -187,8 +199,6 @@
   color: #666;
   border-color: #333;
 }
-
-/* La prossima data si distingue con un bordo solido, non lampeggiante */
 .event-row--next {
   padding-left: 0.9rem;
   border-left: 2px solid rgb(245, 0, 163);
@@ -200,12 +210,19 @@
 
 @media (hover: hover) {
   .event-row:hover {
-    background: linear-gradient(90deg, rgba(245, 0, 163, 0.05), transparent 70%);
+    background: linear-gradient(90deg, rgba(245, 0, 163, 0.35), transparent 70%);
   }
 
-  .event-row:hover .event-row__status:not(.event-row__status--closed) {
-    border-color: rgb(245, 0, 163);
-    box-shadow: 0 0 15px rgba(245, 0, 163, 0.25);
+  .event-row:hover .event-row__status:not(.event-row__status--closed),
+  .event-row__venue:hover {
+    color: rgb(245, 0, 163);
+    text-decoration-color: rgb(245, 0, 163);
+  }
+
+  .event-row__venue:disabled:hover,
+  .event-row__status:disabled:hover {
+    border-color: inherit;
+    box-shadow: none;
   }
 }
 
@@ -230,3 +247,4 @@
     justify-self: end;
   }
 }
+
