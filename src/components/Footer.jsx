@@ -5,7 +5,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 function Footer() {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const handleTopClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const handleDiscoverClick = (e) => {
     e.preventDefault();
     
@@ -39,7 +42,7 @@ function Footer() {
         </div>
 
         <div className="footer-meta">
-          <a href="#top">Back to top</a>
+          <a href="#top" onClick={handleTopClick}>Back to top</a>
           <a href="#discover" onClick={handleDiscoverClick}>Discover the sound</a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farinola.2086585@studenti.uniroma1.it" 
             target="_blank"
