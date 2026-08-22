@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import MP4Logo from './MP4Logo'
 import './Header.css'
 
 function Header() {
@@ -40,7 +41,9 @@ function Header() {
                     <li><NavLink to="/events" className={navClass}>Events</NavLink></li>
                     <li><NavLink to="/contact" className={navClass}>Contact</NavLink></li>
                 </ul>
-                <h1><span className="testo-evidenziato">MP4</span>session</h1>
+                <NavLink to="/" end className="header-brand" aria-label="MP4session — Home">
+                    <MP4Logo />
+                </NavLink>
             </header>
 
             {menuOpen && (

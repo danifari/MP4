@@ -35,17 +35,24 @@
     line-height: 1;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: var(--header-font-size);
-    line-height: 1;
-    font-weight: 700;
-    white-space: nowrap;
+.header-brand {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    transition: transform 0.3s ease;
 }
 
-.testo-evidenziato {
-    color: rgb(245, 0, 163);
-    font-weight: bold;
+.header-brand:hover .mp4-logo,
+.header-brand:focus-visible .mp4-logo {
+    filter: drop-shadow(0 0 16px rgba(245, 0, 163, 0.65));
+    transform: scale(1.04);
+}
+
+.header-brand:focus-visible {
+    outline: 2px solid rgba(245, 0, 163, 0.75);
+    outline-offset: 4px;
+    border-radius: 999px;
 }
 
 .header .top-menu a.menu-burger {
