@@ -133,11 +133,13 @@
     align-items: center;
 }
 
-.top-menu .nav-link:not(.nav-link.active) { display: none; }
-
-.top-menu .nav-link.active {
+.top-menu__current {
     color: rgb(245, 0, 163);
+    font-size: var(--header-font-size);
     font-weight: bold;
+    line-height: 1;
+    min-width: 7ch;
+    text-align: left;
 }
 
 /* --- SIDE MENU --- */
