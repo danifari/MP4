@@ -20,4 +20,63 @@ body{
     color:floralwhite; /* Colore del testo del body */
 }
 
+.route-loader {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(12, 12, 12, 0.72);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 220ms ease, visibility 220ms ease;
+    z-index: 9999;
+}
+
+.route-loader--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.route-loader__spinner {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.16);
+    border-top-color: #f500a3;
+    animation: routeSpin 0.85s linear infinite;
+}
+
+main img {
+    transition: opacity 260ms ease, filter 260ms ease;
+}
+
+main img.img-pending {
+    opacity: 0.35;
+    filter: blur(8px);
+}
+
+main img.img-ready {
+    opacity: 1;
+    filter: blur(0);
+}
+
+@keyframes routeSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .route-loader,
+    main img {
+        transition: none;
+    }
+
+    .route-loader__spinner {
+        animation: none;
+    }
+}
+
 
