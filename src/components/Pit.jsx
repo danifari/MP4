@@ -1,6 +1,6 @@
 import Gallery from './Galleria/Gallery.jsx';
 
-function Contact() {
+function Pit() {
   return (
     <div>
       <Gallery />
@@ -8,4 +8,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Pit;

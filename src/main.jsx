@@ -6,7 +6,7 @@ import App from './App.jsx'
 import Home from './components/Home'
 import Radio from './components/Radio'
 import Events from './components/Events'
-import Contact from './components/Contact'
+import Pit from './components/Pit'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')).render(
           <Route index element={<Home />} />
           <Route path="radio" element={<Radio />} />
           <Route path="events" element={<Events />} />
-          <Route path="contact" element={<Contact />} />
+          <Route path="pit" element={<Pit />} />
         </Route>
       </Routes>
     </BrowserRouter>

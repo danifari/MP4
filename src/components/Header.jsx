@@ -11,7 +11,7 @@ function Header() {
         '/': 'Home',
         '/radio': 'Radio',
         '/events': 'Events',
-        '/contact': 'Contact',
+        '/pit': 'Pit',
     };
 
     const currentRouteLabel = routeLabelMap[location.pathname] || 'Home';
@@ -61,7 +61,7 @@ function Header() {
                 <li><NavLink to="/" end className={navClass}>Home</NavLink></li>
                 <li><NavLink to="/radio" className={navClass}>Radio</NavLink></li>
                 <li><NavLink to="/events" className={navClass}>Events</NavLink></li>
-                <li><NavLink to="/contact" className={navClass}>Contact</NavLink></li>
+                <li><NavLink to="/pit" className={navClass}>Pit</NavLink></li>
             </ul>
         </>
     );
