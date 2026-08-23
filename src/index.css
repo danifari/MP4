@@ -49,17 +49,15 @@ body{
 }
 
 main img {
-    transition: opacity 260ms ease, filter 260ms ease;
+    transition: opacity 260ms ease;
 }
 
 main img.img-pending {
     opacity: 0.35;
-    filter: blur(8px);
 }
 
 main img.img-ready {
     opacity: 1;
-    filter: blur(0);
 }
 
 @keyframes routeSpin {
