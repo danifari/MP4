@@ -6,7 +6,9 @@ function Radio() {
   return (
     <div style={{ minHeight: '100vh' }}>
       <Second />
+      {/*
       <Principal />
+      */}
     </div>
   );
 }

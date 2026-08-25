@@ -1,11 +1,3 @@
-/* ============================================
-   EVENT — poster in evidenza per la home.
-   Immagine a piena tela con scrim scuro e testo
-   in overlay, cornice a "mirino" fucsia agli
-   angoli: un linguaggio da locandina, diverso
-   sia dalle carte flip sia dalla lista eventi.
-   ============================================ */
-
 .event {
   position: relative;
   overflow: hidden;
@@ -14,6 +6,12 @@
   border: 1px solid rgba(245, 0, 163, 0.35);
   box-shadow: 0 0 50px rgba(245, 0, 163, 0.1);
   aspect-ratio: 4 / 5;
+  cursor: pointer;
+}
+
+.event:focus-visible {
+  outline: 2px solid rgb(245, 0, 163);
+  outline-offset: 3px;
 }
 
 .event-image {
@@ -25,8 +23,6 @@
   filter: grayscale(0.25) contrast(1.1) brightness(0.75);
 }
 
-/* Scrim: scurisce il basso per far leggere il testo,
-   con un accenno di fucsia per legare l'immagine alla palette */
 .event-scrim {
   position: absolute;
   inset: 0;
@@ -35,9 +31,6 @@
     radial-gradient(ellipse 70% 50% at 15% 100%, rgba(245, 0, 163, 0.16), transparent 65%);
 }
 
-/* Angoli a mirino, come una locandina spillata: il segno
-   distintivo di questa sezione, senza ripetere il glow
-   costante delle altre schede */
 .event::before,
 .event::after {
   content: "";
@@ -120,15 +113,13 @@
   }
 }
 
-/* Da tablet in su: la locandina diventa una banda
-   panoramica invece di un poster verticale */
 @media (min-width: 700px) {
   .event {
     aspect-ratio: 21 / 9;
-    min-height: 420px;
   }
-
+ 
   .event-content {
     max-width: 640px;
   }
 }
+ 

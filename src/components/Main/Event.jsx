@@ -1,11 +1,49 @@
 import './Event.css';
+import { useNavigate } from 'react-router-dom';
+import { getUpcomingEvents, getEventDate, DEFAULT_EVENT_IMAGE } from '../Event/Tickets';
+// ^ aggiusta il path in base a dove si trova effettivamente Tickets.jsx
+
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 function Event() {
+  const navigate = useNavigate();
+  const nextEvent = getUpcomingEvents()[0];
+
+  // Nessun evento futuro in Tickets: niente poster da mostrare in home
+  if (!nextEvent) return null;
+
+  const dateLabel = capitalize(
+    getEventDate(nextEvent).toLocaleDateString('it-IT', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  );
+
+  const posterImage = nextEvent.img || DEFAULT_EVENT_IMAGE;
+
+  const goToEvents = () => navigate('/events');
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      goToEvents();
+    }
+  };
+
   return (
-    <div className="event" id="event">
+    <div
+      className="event"
+      id="event"
+      role="link"
+      tabIndex={0}
+      onClick={goToEvents}
+      onKeyDown={handleKeyDown}
+    >
       <img
-        src="https://cdn.zero.eu/uploads/2018/04/29790613_559938431047455_6782490952297611264_o.jpg"
-        alt="Event"
+        src={posterImage}
+        alt={`${nextEvent.venue}, ${nextEvent.city}`}
         className="event-image"
       />
       <div className="event-scrim" />
@@ -15,18 +53,19 @@ function Event() {
 
         <p className="event-date">
           <i className="fa-regular fa-calendar"></i>
-          Saturday, June 15th, 2024
+          {dateLabel}
         </p>
 
         <p className="event-location">
           <i className="fa-solid fa-location-dot"></i>
           <a
-            href="https://www.google.com/maps/place/Hotel+Butterfly/@41.9299618,12.4523419,17z/data=!3m1!4b1!4m6!3m5!1s0x132f60e98ca5d7e5:0x5c6c0daf953fd506!8m2!3d41.9299578!4d12.4549168!16s%2Fg%2F11dfswfp7z?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D"
+            href={nextEvent.linkp}
             target="_blank"
             rel="noopener noreferrer"
             title="Apri su Google Maps"
+            onClick={(e) => e.stopPropagation()}
           >
-            Hotel Butterfly
+            {nextEvent.venue}
           </a>
         </p>
       </div>
